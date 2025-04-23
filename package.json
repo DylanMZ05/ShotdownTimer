@@ -1,6 +1,6 @@
 {
   "name": "timershutdown",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Temporizador para apagado automático de la PC",
   "main": "./main.js",
   "scripts": {

@@ -1,0 +1,60 @@
+{
+  "name": "timershutdown",
+  "version": "1.0.0",
+  "description": "Temporizador para apagado automático de la PC",
+  "main": "./main.js",
+  "scripts": {
+    "tailwind": "tailwindcss -i ./src/input.css -o ./src/output.css --watch",
+    "start": "concurrently \"npm:tailwind\" \"electron .\"",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder --win --x64",
+    "build": "electron-builder --win --x64"
+  },
+  "keywords": [],
+  "author": "DylanMZ",
+  "license": "MIT",
+  "type": "commonjs",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.4",
+    "concurrently": "^9.1.2",
+    "electron": "35.2.0",
+    "electron-builder": "^24.13.3",
+    "electron-reload": "^2.0.0-alpha.1"
+  },
+  "dependencies": {
+    "tailwindcss": "^4.1.4"
+  },
+  "build": {
+    "appId": "com.dylanmz.timershutdown",
+    "productName": "Shutdown Timer",
+    "icon": "favicon.ico",
+    "asar": true,
+    "files": [
+      "index.html",
+      "main.js",
+      "renderer.js",
+      "preload.js",
+      "src/**/*"
+    ],
+    "win": {
+      "requestedExecutionLevel": "requireAdministrator",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        }
+      ],
+      "signAndEditExecutable": false,
+      "signExts": [],
+      "verifyUpdateCodeSignature": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowElevation": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "artifactName": "ShutdownTimer-Setup-${version}.exe"
+    }
+  }
+}

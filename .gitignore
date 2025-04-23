@@ -1,0 +1,19 @@
+# Node modules
+node_modules/
+
+# Output folders
+dist/
+out/
+build/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Tailwind CLI output
+src/output.css
+
+# Sistema
+.DS_Store
+Thumbs.db
